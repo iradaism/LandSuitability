@@ -12,7 +12,7 @@ author: "Irada Ismayilova"
 ---
 *In this tutorial you will learn to perform one of the most common spatial analysis technique: Suitability analysis. However, instead of the typical GIS software approach, you will make use of different vector and raster data manipulation packages in R.* 
 
-![Alvar grassland in Estonia. *Source: europarc.org*](res\alvar.png){width=50%}
+![Alvar grassland in Estonia. *Source: europarc.org*](res/alvar.png){width=50%}
 
 # Data
 
@@ -88,7 +88,7 @@ plot(DEM, main = "Digital elevation model of the \n Muhu island, Estonia")
 # Analysis
 In order to find suitable areas for restoration of Alvar grasslands we will follow the steps shown on the flowchart below.
 
-![*Workflow of the AHP incorporated suitability analysis*](res\workflow.png){width=75%}
+![*Workflow of the AHP incorporated suitability analysis*](res/workflow.png){width=75%}
 
 ## Restriction model
 
@@ -175,7 +175,7 @@ urban.raster <- rasterize(urban.buffer, empty.raster, background= 0)
 
 plot(urban.raster)
 ```
-![](res\restriction.png){width=50%}
+![](res/restriction.png){width=50%}
 
 We can now join all three rasters so that we have a single raster layer that represent restricted cells. The join we can express with the logical operator **OR**. 
 
@@ -246,7 +246,7 @@ Slope <- terrain(DEM, opt="slope", unit="degrees")
 plot(Slope)
 ```
 
-![](res\slope.png){width=50%}
+![](res/slope.png){width=50%}
 
 
 We can now reclassify the slope raster into 3 suitability groups just like before. Reclassification of a raster is the process where we create a new raster with new values based on the old raster. Therefore, we should first figure out what is the value range of the raster.  We can retreive this information with the summary function as well as by plotting the raster. 
@@ -266,7 +266,7 @@ hist(Slope,
 
 ```
 
-![](res\distribution_slope.png){width=50%}
+![](res/distribution_slope.png){width=50%}
 
 ```{r eval=FALSE}
 hist(Slope,
@@ -277,7 +277,7 @@ hist(Slope,
 
 ```
 
-![](res\distribution_slope2.png){width=50%}
+![](res/distribution_slope2.png){width=50%}
 
 **What does each bin in the histogram represents?**
 
@@ -317,13 +317,13 @@ slope.reclassified <- reclassify(Slope, reclass.matrix.reshape)
 plot(slope.reclassified)
 ```
 
-![](res\slope_reclassified.png){width=50%}
+![](res/slope_reclassified.png){width=50%}
 
 
 ```{r eval=FALSE}
 barplot(slope.reclassified)
 ```
-![](res\slope_barplot.png){width=50%}
+![](res/slope_barplot.png){width=50%}
 
 It might happen that your reclassified raster contains 4 values instead of 3. You can replace 0 values with 1
 
@@ -406,7 +406,7 @@ plot(suitable.areas,
 writeRaster(suitable.areas, "suitable_areas.tif")
 ```
 
-![](res\suitable_alvar.png){width=65%}
+![](res/suitable_alvar.png){width=65%}
 
 
 
