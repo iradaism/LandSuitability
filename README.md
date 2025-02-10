@@ -8,7 +8,7 @@ the typical GIS software approach, you will make use of different vector
 and raster data manipulation packages in R.*
 
 <figure>
-<img src="alvar.png" style="width:50.0%"
+<img src="res\alvar.png" style="width:50.0%"
 alt="Alvar grassland in Estonia. Source: europarc.org" />
 <figcaption aria-hidden="true">Alvar grassland in Estonia. <em>Source:
 europarc.org</em></figcaption>
@@ -115,7 +115,7 @@ In order to find suitable areas for restoration of Alvar grasslands we
 will follow the steps shown on the flowchart below.
 
 <figure>
-<img src="workflow.png" style="width:75.0%"
+<img src="res\workflow.png" style="width:75.0%"
 alt="Workflow of the AHP incorporated suitability analysis" />
 <figcaption aria-hidden="true"><em>Workflow of the AHP incorporated
 suitability analysis</em></figcaption>
@@ -216,7 +216,7 @@ which value should you pass into background?**
 plot(urban.raster)
 ```
 
-<img src="restriction.png" style="width:50.0%" />
+<img src="res\restriction.png" style="width:50.0%" />
 
 We can now join all three rasters so that we have a single raster layer
 that represent restricted cells. The join we can express with the
@@ -301,7 +301,7 @@ Slope <- terrain(DEM, opt="slope", unit="degrees")
 plot(Slope)
 ```
 
-<img src="slope.png" style="width:50.0%" />
+<img src="res\slope.png" style="width:50.0%" />
 
 We can now reclassify the slope raster into 3 suitability groups just
 like before. Reclassification of a raster is the process where we create
@@ -324,7 +324,7 @@ hist(Slope,
      col = "springgreen")
 ```
 
-<img src="distribution_slope.png" style="width:50.0%" />
+<img src="res\distribution_slope.png" style="width:50.0%" />
 
 ``` r
 hist(Slope,
@@ -334,7 +334,7 @@ hist(Slope,
      col = "springgreen")
 ```
 
-<img src="distribution_slope2.png" style="width:50.0%" />
+<img src="res\distribution_slope2.png" style="width:50.0%" />
 
 **What does each bin in the histogram represents?**
 
@@ -378,13 +378,13 @@ slope.reclassified <- reclassify(Slope, reclass.matrix.reshape)
 plot(slope.reclassified)
 ```
 
-<img src="slope_reclassified.png" style="width:50.0%" />
+<img src="res\slope_reclassified.png" style="width:50.0%" />
 
 ``` r
 barplot(slope.reclassified)
 ```
 
-<img src="slope_barplot.png" style="width:50.0%" />
+<img src="res\slope_barplot.png" style="width:50.0%" />
 
 It might happen that your reclassified raster contains 4 values instead
 of 3. You can replace 0 values with 1
@@ -472,4 +472,4 @@ plot(suitable.areas,
 writeRaster(suitable.areas, "suitable_areas.tif")
 ```
 
-<img src="suitable_alvar.png" style="width:65.0%" />
+<img src="res\suitable_alvar.png" style="width:65.0%" />
