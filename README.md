@@ -469,7 +469,7 @@ plot(suitable.areas,
      main="Suitable areas for alvar grassland restoration", 
      axes=FALSE)
 
-writeRaster(suitable.areas, "suitable_areas.tif")
+writeRaster(suitable.areas, "suitable_areas.tif") 
 ```
 
 <img src="res/suitable_alvar.png" style="width:65.0%" />
